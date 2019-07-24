@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="pref_sort_movies_labels">
+        <item>@string/pref_sort_lebel_popular</item>
+        <item>@string/pref_sort_lebel_top_rate </item>
+        <item>@string/pref_sort_lebel_favorite</item>
+    </array>
+    <array name="pref_sort_movies_values">
+        <item>@string/pref_popular_value</item>
+        <item>@string/pref_top_rate_value</item>
+        <item>@string/pref_favorites_value</item>
+    </array>
+
+
+</resources>

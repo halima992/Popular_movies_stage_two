@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Movies Popular</string>
+    <!-- Add string values for the list preference -->
+    <string name="pref_sort_lebel">Sorted Movies By:</string>
+    <string name="pref_sort_lebel_popular">Popular</string>
+    <string name="pref_sort_lebel_top_rate">Top Rate</string>
+    <string name="pref_sort_lebel_favorite">Favorite</string>
+    <string name="pref_sort_key" translatable="false">Sort</string>
+    <string name="pref_popular_value" translatable="false">popular</string>
+    <string name="pref_top_rate_value" translatable="false">top rate</string>
+    <string name="pref_favorites_value" translatable="false">favorite</string>
+    <!--Menu-->>
+    <string name="popular">Popular</string>
+    <string name="rate">Top rate</string>
+    <!--detail-->
+    <string name="title">Movie: </string>
+    <string name="release_date">Release Date: </string>
+    <string name="vote_data">Vote Average: </string>
+    <string name="overview">Overview: </string>
+    <string name="trailer">Trailer:</string>
+    <string name="review">review:</string>
+    <string name="Favorite">Favorite</string>
+    <string name="UNFavorite">Unfavorite</string>
+    <!--error message-->
+    <string name="Error_Message_Review">there is no review in this movie</string>
+    <string name="Error_Message_Trailer">there is no Trailer in this movie</string>
+    <string name="action_settings">settings</string>
+</resources>
