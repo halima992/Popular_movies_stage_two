@@ -50,18 +50,6 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Observer= new Observer<List<MovieModule>>() {
-            @Override
-            public void onChanged(@Nullable List<MovieModule> movieModules) {
-                if (movieModules!=null) {
-                    movies.clear();
-                    movies.addAll(movieModules);
-                    movieAdapter.notifyDataSetChanged();
-
-                }
-
-            }
-        };
         mDb=AppDatabase.getInstance(getApplicationContext());
         // todo (3) Use findViewById to get a reference to the RecyclerView
 
@@ -87,14 +75,47 @@ public class MainActivity extends AppCompatActivity
 
         if(getSelected().equals(getString(R.string.pref_popular_value))){
             theQuery="popular";
-            viewModel.getMoviesService(theQuery).observe(this,Observer);
+            viewModel.getMoviesService(theQuery).observe(this,Observer=new Observer<List<MovieModule>>() {
+                @Override
+                public void onChanged(@Nullable List<MovieModule> movieModules) {
+                    if (movieModules!=null) {
+                        movies.clear();
+                        movies.addAll(movieModules);
+                        movieAdapter.notifyDataSetChanged();
+
+                    }
+
+                }
+            });
         }
         else if(getSelected().equals(getString(R.string.pref_top_rate_value))){
             theQuery="top_rated";
-            viewModel.getMoviesService(theQuery).observe(this,Observer);
+            viewModel.getMoviesService(theQuery).observe(this,Observer=new Observer<List<MovieModule>>() {
+                @Override
+                public void onChanged(@Nullable List<MovieModule> movieModules) {
+                    if (movieModules!=null) {
+                        movies.clear();
+                        movies.addAll(movieModules);
+                        movieAdapter.notifyDataSetChanged();
+
+                    }
+
+                }
+            });
         }
         else{
-                viewModel.loadMovies().observe(this, Observer);
+                viewModel.loadMovies().observe(this, Observer=new Observer<List<MovieModule>>() {
+                    @Override
+                    public void onChanged(@Nullable List<MovieModule> movieModules) {
+                        if (movieModules!=null) {
+                            movies.clear();
+                            movies.addAll(movieModules);
+                            movieAdapter.notifyDataSetChanged();
+
+                        }
+
+                    }
+                });
         }
     }   // TODO (59) Override ListMoviePosterClickListener's onMoviePosterClick method
 
@@ -147,24 +168,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(startSettingActivity);
             return true;
         }
-        /*if (id == R.id.popular_movie) {
-            theQuery="popular";
-            movieAdapter.clearMovieData();
-            showMovieData();
-            return true;
-        }
-        if (id == R.id.top_rate) {
-            theQuery = "top_rated";
-            movieAdapter.clearMovieData();
-            showMovieData();
-            return true;
-        }
-        if(id==R.id.Favorite){
-            movieAdapter.clearMovieData();
-            theQuery="Favorite";
-            showMovieData();
-            return true;
-        }*/
+
         return super.onOptionsItemSelected(item);
     }
             private String getSelected() {
